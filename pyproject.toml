@@ -1,3 +1,76 @@
+[project]
+name = "daily-stock-analysis"
+version = "0.1.0"
+description = "股票智能分析系统，覆盖 A 股、港股、美股"
+requires-python = ">=3.10"
+dependencies = [
+    # 核心依赖
+    "python-dotenv>=1.0.0",
+    "tenacity>=8.2.0",
+    "sqlalchemy>=2.0.0",
+    "schedule>=1.2.0",
+    "exchange-calendars>=4.5.0",
+
+    # 数据源依赖（多源策略，按优先级排序）
+    "efinance>=0.5.5",
+    "akshare>=1.12.0",
+    "tushare>=1.4.0",
+    "pytdx>=1.72",
+    "baostock>=0.8.0",
+    "yfinance>=0.2.0",
+    "tickflow>=0.1.0",
+
+    # 飞书
+    "lark-oapi>=1.0.0",
+
+    # 数据处理
+    "pandas>=2.0.0",
+    "pypinyin>=0.50.0",
+    "openpyxl>=3.1.0",
+    "numpy>=1.24.0",
+    "json-repair>=0.55.1",
+
+    # AI 分析
+    "litellm>=1.80.10,<1.82.7",
+    "tiktoken>=0.8.0,<0.12.0",
+    "openai>=1.0.0",
+    "PyYAML>=6.0",
+
+    # 搜索引擎
+    "tavily-python>=0.3.0",
+    "google-search-results>=2.4.0",
+
+    # 网络请求
+    "requests>=2.31.0",
+    "markdown2>=2.4.0",
+    "imgkit>=1.2.0",
+    "fake-useragent>=1.4.0",
+    "httpx[socks]",
+    "dingtalk-stream>=0.24.3",
+
+    # Discord 机器人
+    "discord.py>=2.0.0",
+
+    # Web Content Extraction
+    "newspaper3k>=0.2.8",
+    "lxml_html_clean",
+
+    # 报告模板引擎
+    "jinja2>=3.1.0",
+
+    # FastAPI Web 框架
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "python-multipart>=0.0.6",
+]
+
+[project.optional-dependencies]
+ci = [
+    "flake8",
+    "pytest",
+]
+
+
 [tool.black]
 line-length = 120
 target-version = ['py310', 'py311', 'py312']
